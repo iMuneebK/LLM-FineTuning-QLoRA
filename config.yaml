@@ -1,0 +1,20 @@
+model:
+  base_model_name: "NousResearch/Llama-2-7b-hf"
+  new_model_name: "llama-2-7b-custom-finetune"
+
+data:
+  dataset_path: "data/train.jsonl"
+
+training:
+  load_in_4bit: true
+  num_epochs: 1
+  batch_size: 4
+  gradient_accumulation_steps: 4
+  learning_rate: 2e-4
+  max_seq_length: 512
+  output_dir: "./results"
+
+lora:
+  r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
